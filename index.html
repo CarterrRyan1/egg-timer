@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Egg Timer</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="./timer.js" defer></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="timer">
+          <h1 class="title">Egg Timer</h1>
+          <div >
+            <input
+              type="number"
+              min="0"
+              max="99"
+              v-model="minutes"
+              placeholder="MM"
+            />
+            <span>:</span>
+            <input
+              type="number"
+              min="0"
+              max="59"
+              v-model="seconds"
+              placeholder="SS"
+            />
+          </div>
+          <div class="displayTime">{{ displayTime }}</div>
+          <div class="barOuter">
+            <div
+              class="barInner"
+              :style="{ width: progress + '%' }"
+              role="progressbar"
+
+            ></div>
+          </div>
+          <div>
+            <button @click="startTimer" :disabled="isRunning">Start</button>
+            <button @click="pauseTimer" :disabled="!isRunning">Pause</button>
+            <button @click="resetTimer">Reset</button>
+          </div>
+          <div>
+            <p>Presets:</p>
+            <button @click="hardBoiled" :disabled="isRunning">Hard Boiled</button>
+            <button @click="softBoiled" :disabled="isRunning">Soft Boiled</button>
+            <button @click="poached" :disabled="isRunning">Poached</button>
+          </div>
+        </div>
+      </div>
+      <!-- <audio>
+        <source :src="done" type="audio/mpeg" />
+      </audio> -->
+    </div>
+  </body>
+</html>
