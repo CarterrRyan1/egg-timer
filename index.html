@@ -36,7 +36,9 @@
               class="barInner"
               :style="{ width: progress + '%' }"
               role="progressbar"
-
+              :aria-valuemin="0"
+              :aria-valuemax="100"
+              :aria-valuenow="Math.round(progress)"
             ></div>
           </div>
           <div>
@@ -52,9 +54,6 @@
           </div>
         </div>
       </div>
-      <!-- <audio>
-        <source :src="done" type="audio/mpeg" />
-      </audio> -->
     </div>
   </body>
 </html>
