@@ -6,7 +6,9 @@ new Vue({
         totalSeconds: 0,
         initialTotalSeconds: 0,
         timer: null,
-        isRunning: false
+        isRunning: false,
+        audio:new Audio('src/bell.wav')
+
     },
     computed: {
         displayTime() {
@@ -61,6 +63,7 @@ new Vue({
                 this.totalSeconds--;
             } else {
                 this.pauseTimer();
+                this.audio.play();
             }
         },
 
